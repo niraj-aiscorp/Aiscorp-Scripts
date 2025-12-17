@@ -32,5 +32,14 @@ foreach ($pkg in $packages) {
         --scope machine
 }
 
+# Set region language and keyboard to NZ
+$LangList = New-WinUserLanguageList 'en-NZ'
+$LangList.Add('en-US')
+Set-WinUserLanguageList $LangList -Force
+
+Copy-UserInternationalSettingsToSystem -WelcomeScreen $true -NewUser $true
+
+
 # Remove scheduled task after success
 Unregister-ScheduledTask -TaskName "InstallApps" -Confirm:$false
+
