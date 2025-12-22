@@ -25,6 +25,7 @@ $packages = @(
 foreach ($pkg in $packages) {
     & $winget install `
         --id $pkg `
+        --source winget `
         --exact `
         --silent `
         --accept-package-agreements `
@@ -42,4 +43,5 @@ Copy-UserInternationalSettingsToSystem -WelcomeScreen $true -NewUser $true
 
 # Remove scheduled task after success
 Unregister-ScheduledTask -TaskName "InstallApps" -Confirm:$false
+
 
