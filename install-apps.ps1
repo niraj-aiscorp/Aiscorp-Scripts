@@ -17,7 +17,6 @@ if (-not (Test-Path $winget)) {
 
 $packages = @(
     "Adobe.Acrobat.Reader.64-bit",
-    "Google.Chrome",
     "Zoom.Zoom",
     "VideoLAN.VLC"
 )
@@ -43,5 +42,6 @@ Copy-UserInternationalSettingsToSystem -WelcomeScreen $true -NewUser $true
 
 # Remove scheduled task after success
 Unregister-ScheduledTask -TaskName "InstallApps" -Confirm:$false
+
 
 
